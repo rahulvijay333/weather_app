@@ -26,6 +26,3 @@ Container showTodayWeatherTimeWiseWidget(Size size, List<Hour> timeList) {
     ),
   );
 }
-
-
-

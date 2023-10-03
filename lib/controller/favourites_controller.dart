@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hive_flutter/hive_flutter.dart';
@@ -64,12 +62,11 @@ class FavouritesController extends GetxController {
       try {
         hiveBox.delete(id);
         getFavList();
-        log('Location deleted: $id');
       } catch (e) {
-        log('Error deleting location: $e');
+        showSnackbar(message: 'Error occured');
       }
     } else {
-      log('Item with ID $id not found.');
+      showSnackbar(message: 'Error occured');
     }
   }
 
@@ -82,18 +79,13 @@ class FavouritesController extends GetxController {
 
     final favlist = hivebox.values.toList();
 
-    log('searching status of $locationName');
-
     if (favlist
             .where((name) =>
                 name.locName.toLowerCase() == locationName.toLowerCase())
             .isEmpty ==
         false) {
-      log('location  present');
-
       checkFav.value = true;
     } else {
-      log('location not present in db');
       // log(checkFav.value.toString());
       checkFav.value = false;
     }

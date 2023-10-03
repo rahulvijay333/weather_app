@@ -3,7 +3,8 @@ import 'package:intl/intl.dart';
 import 'package:weather_app/constants/const/common.dart';
 import 'package:weather_app/model/selected_location/selected_location_model/hour.dart';
 
-Container showTodayWeatherTimeWiseWidgetSelected(Size size, List<Hour> timeLists) {
+Container showTodayWeatherTimeWiseWidgetSelected(
+    Size size, List<Hour> timeLists) {
   return Container(
     height: size.height * 0.14,
     child: ListView.separated(

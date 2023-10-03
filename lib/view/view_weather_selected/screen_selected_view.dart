@@ -14,7 +14,6 @@ class ScreenSelectedView extends StatelessWidget {
   ScreenSelectedView({super.key, required this.localName});
 
   final String localName;
-  
 
   final SelectedLocationController selectedLocationController =
       Get.put(SelectedLocationController());
@@ -106,20 +105,22 @@ class ScreenSelectedView extends StatelessWidget {
                           final getValue = controller.currentWeather.value;
                           String imageUrl =
                               "https:${controller.currentWeather.value!.current!.condition!.icon}";
-                         
 
+                          List<Hour> timeList = [];
 
-                                List<Hour> timeList = [];
+                          for (var time in selectedLocationController
+                              .currentWeather
+                              .value!
+                              .forecast!
+                              .forecastday![0]
+                              .hour!) {
+                            final checktime = DateTime.parse(time.time!);
 
-                      for (var time in selectedLocationController.currentWeather.value!
-                          .forecast!.forecastday![0].hour!) {
-                        final checktime = DateTime.parse(time.time!);
-
-                        if (checktime.isAtSameMomentAs(DateTime.now()) ||
-                            checktime.isAfter(DateTime.now())) {
-                          timeList.add(time);
-                        }
-                      }
+                            if (checktime.isAtSameMomentAs(DateTime.now()) ||
+                                checktime.isAfter(DateTime.now())) {
+                              timeList.add(time);
+                            }
+                          }
                           return SingleChildScrollView(
                             child: Padding(
                               padding: const EdgeInsets.all(8.0),
@@ -165,8 +166,7 @@ class ScreenSelectedView extends StatelessWidget {
                                     child: Container(
                                       height: size.height * 0.14,
                                       child: ListView.separated(
-                                        physics:
-                                            const BouncingScrollPhysics(),
+                                        physics: const BouncingScrollPhysics(),
                                         shrinkWrap: true,
                                         separatorBuilder: (context, index) {
                                           return const SizedBox(

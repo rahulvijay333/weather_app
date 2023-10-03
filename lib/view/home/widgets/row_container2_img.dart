@@ -41,7 +41,7 @@ class Container1part2image extends StatelessWidget {
           child: Container(
             width: 50,
             height: 40,
-            color: Colors.white.withOpacity(0.5),
+            color: Colors.white.withOpacity(0.2),
             child: Center(
               child: IconButton(onPressed: () {
                 DataBaseModel location = DataBaseModel(

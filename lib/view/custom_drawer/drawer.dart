@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:weather_app/controller/weather_controller.dart';
 import 'package:weather_app/view/favs/screen_favourites.dart';
+import 'package:weather_app/view/news/screen_view_news.dart';
 
 class CustomNavDrawer extends StatelessWidget {
   CustomNavDrawer({
@@ -26,7 +27,6 @@ class CustomNavDrawer extends StatelessWidget {
                 color: Colors.white.withOpacity(0.1),
                 child: ListTile(
                   onTap: () {
-                    
                     Get.to(() => ScreenFavorites());
                     Scaffold.of(context).closeDrawer();
                   },
@@ -36,6 +36,29 @@ class CustomNavDrawer extends StatelessWidget {
                   ),
                   title: Text(
                     'Favorite locations',
+                    style: TextStyle(color: Colors.white, fontSize: 18),
+                  ),
+                ),
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(10),
+              child: Container(
+                color: Colors.white.withOpacity(0.1),
+                child: ListTile(
+                  onTap: () {
+                    Get.to(() => ScreenNews());
+                    Scaffold.of(context).closeDrawer();
+                  },
+                  leading: Icon(
+                    Icons.newspaper,
+                    color: Colors.red,
+                  ),
+                  title: Text(
+                    'Top News',
                     style: TextStyle(color: Colors.white, fontSize: 18),
                   ),
                 ),

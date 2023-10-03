@@ -19,7 +19,8 @@ class Screenhome extends StatelessWidget {
   Screenhome({super.key});
   final WeatherController weatherController = Get.put(WeatherController());
   final TextEditingController searchController = TextEditingController();
-  final FavouritesController favouritesController = Get.put(FavouritesController());
+  final FavouritesController favouritesController =
+      Get.put(FavouritesController());
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -70,6 +71,7 @@ class Screenhome extends StatelessWidget {
                     child: Padding(
                       padding: const EdgeInsets.all(16.0),
                       child: CupertinoSearchTextField(
+                       
                         style: const TextStyle(color: Colors.white),
                         padding: const EdgeInsets.all(5),
                         controller: searchController,
@@ -84,7 +86,6 @@ class Screenhome extends StatelessWidget {
                         onChanged: (value) {
                           if (value.isEmpty) {
                             weatherController.resetState();
-                           
                           }
                         },
                         onSubmitted: (value) {
@@ -195,11 +196,13 @@ class Screenhome extends StatelessWidget {
                       for (var time in weatherController.currentWeather.value!
                           .forecast!.forecastday![0].hour!) {
                         final checktime = DateTime.parse(time.time!);
+                     
 
-                        if (checktime.isAtSameMomentAs(DateTime.now()) ||
-                            checktime.isAfter(DateTime.now())) {
-                          timeList.add(time);
-                        }
+                        // if (checktime.isAtSameMomentAs(DateTime.now()) ||
+                        //     checktime.isAfter(DateTime.now())) {
+                        //   timeList.add(time);
+                        // }
+                        timeList.add(time);
                       }
                       return ListView(
                         physics: const BouncingScrollPhysics(),

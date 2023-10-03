@@ -8,7 +8,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   //hive
   await Hive.initFlutter();
- // await Hive.openBox<DataBaseModel>(favoritesDBName);
+  // await Hive.openBox<DataBaseModel>(favoritesDBName);
 
   if (!Hive.isAdapterRegistered(DataBaseModelAdapter().typeId)) {
     Hive.registerAdapter(DataBaseModelAdapter());

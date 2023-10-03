@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:weather_app/constants/const/common.dart';
 import 'package:weather_app/model/selected_location/selected_location_model/selected_location_model.dart';
@@ -26,15 +25,13 @@ class showCurrentWeatherDetails extends StatelessWidget {
         width: size.width,
         color: Colors.white.withOpacity(0.15),
         child: Row(
-          mainAxisAlignment:
-              MainAxisAlignment.spaceEvenly,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             Container(
               width: size.width * 0.45,
               // color: Colors.amber,
               child: Column(
-                crossAxisAlignment:
-                    CrossAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Container(
                     width: 80,
@@ -49,16 +46,12 @@ class showCurrentWeatherDetails extends StatelessWidget {
                     style: TextStyle(
                         color: Colors.white,
                         fontSize: size.width * 0.08,
-                        fontWeight:
-                            FontWeight.w800),
+                        fontWeight: FontWeight.w800),
                   ),
                   Text(
-                    getValue
-                        !.current!.condition!.text!,
+                    getValue!.current!.condition!.text!,
                     style: TextStyle(
-                        color: Colors.white,
-                        fontSize:
-                            size.width * 0.05),
+                        color: Colors.white, fontSize: size.width * 0.05),
                   ),
                   SizedBox(
                     height: size.height * 0.01,
@@ -81,9 +74,7 @@ class showCurrentWeatherDetails extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Row(
-                    mainAxisAlignment:
-                        MainAxisAlignment
-                            .spaceEvenly,
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       IconTextWidgetCustom(
                           size: size,
@@ -97,16 +88,13 @@ class showCurrentWeatherDetails extends StatelessWidget {
                           size: size,
                           icon: Icons.water_drop,
                           title: 'Humidity',
-                          value: getValue
-                              !.current!.humidity!
-                              .toInt()
-                              .toString(),
+                          value:
+                              getValue!.current!.humidity!.toInt().toString(),
                           heightC: 2,
                           widthC: 2),
                       IconTextWidgetCustom(
                           size: size,
-                          icon:
-                              Icons.cloudy_snowing,
+                          icon: Icons.cloudy_snowing,
                           title: 'Rain',
                           value:
                               '${getValue!.forecast!.forecastday![0].day!.dailyChanceOfRain!.toString()} %',
@@ -118,31 +106,21 @@ class showCurrentWeatherDetails extends StatelessWidget {
                     height: size.height * 0.03,
                   ),
                   Row(
-                    mainAxisAlignment:
-                        MainAxisAlignment
-                            .spaceEvenly,
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       IconTextWidgetCustom(
                           size: size,
                           icon: Icons.sunny,
                           title: 'UV Index',
-                          value: getValue
-                              !.current!.uv!
-                              .toInt()
-                              .toString(),
+                          value: getValue!.current!.uv!.toInt().toString(),
                           heightC: 2,
                           widthC: 2),
                       ClipRRect(
-                        borderRadius:
-                            BorderRadius.circular(
-                                10),
+                        borderRadius: BorderRadius.circular(10),
                         child: Container(
-                          color: Colors.white
-                              .withOpacity(0.2),
+                          color: Colors.white.withOpacity(0.2),
                           child: Padding(
-                            padding:
-                                const EdgeInsets
-                                    .all(8.0),
+                            padding: const EdgeInsets.all(8.0),
                             child: Column(
                               children: [
                                 Row(
@@ -153,15 +131,10 @@ class showCurrentWeatherDetails extends StatelessWidget {
                                       height: 25,
                                     ),
                                     Text(
-                                      getValue!
-                                          .forecast!
-                                          .forecastday![
-                                              0]
-                                          .astro!
+                                      getValue!.forecast!.forecastday![0].astro!
                                           .sunrise!,
-                                      style: const TextStyle(
-                                          color: Colors
-                                              .white),
+                                      style:
+                                          const TextStyle(color: Colors.white),
                                     )
                                   ],
                                 ),
@@ -174,15 +147,10 @@ class showCurrentWeatherDetails extends StatelessWidget {
                                       height: 25,
                                     ),
                                     Text(
-                                        getValue!
-                                            .forecast!
-                                            .forecastday![
-                                                0]
-                                            .astro!
-                                            .sunset!,
+                                        getValue!.forecast!.forecastday![0]
+                                            .astro!.sunset!,
                                         style: const TextStyle(
-                                            color: Colors
-                                                .white))
+                                            color: Colors.white))
                                   ],
                                 )
                               ],
@@ -198,7 +166,6 @@ class showCurrentWeatherDetails extends StatelessWidget {
           ],
         ),
       ),
-      
     );
   }
 }

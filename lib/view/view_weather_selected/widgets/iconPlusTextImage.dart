@@ -31,19 +31,21 @@ class IconTextWidgetCustom extends StatelessWidget {
         children: [
           Icon(
             icon,
-         color: Colors.white,
+            color: Colors.white,
           ),
           Text(
             value,
             style: TextStyle(
-       color: Colors.white,
+              color: Colors.white,
               fontWeight: FontWeight.w500,
               // fontSize: size.width * 0.5 * 0.40 * 0.20
             ),
           ),
           Text(
             title,
-            style: const TextStyle( color: Colors.white,),
+            style: const TextStyle(
+              color: Colors.white,
+            ),
           )
         ],
       ),
