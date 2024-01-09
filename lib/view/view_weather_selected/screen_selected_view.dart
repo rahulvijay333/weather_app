@@ -5,7 +5,6 @@ import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 import 'package:weather_app/controller/selected_location_controller.dart';
 import 'package:weather_app/model/selected_location/selected_location_model/hour.dart';
-import 'package:weather_app/view/home/widgets/show_time_schedule.dart';
 import 'package:weather_app/view/view_weather_selected/widgets/forecase_tile.dart';
 import 'package:weather_app/view/view_weather_selected/widgets/show_details_cont1.dart';
 import 'package:weather_app/view/view_weather_selected/widgets/today_time_forecast.dart';
@@ -30,16 +29,7 @@ class ScreenSelectedView extends StatelessWidget {
                 Stack(
                   children: [
                     appbarCustom(size: size, localName: localName),
-                    // Builder(builder: (context) {
-                    //   return IconButton(
-                    //       onPressed: () {
-                    //         Navigator.of(context).pop();
-                    //       },
-                    //       icon: const Icon(
-                    //         Icons.arrow_back_ios_new,
-                    //         color: Colors.white,
-                    //       ));
-                    // }),
+                
                     IconButton(
                         onPressed: () {
                           Navigator.of(context).pop();
@@ -50,6 +40,7 @@ class ScreenSelectedView extends StatelessWidget {
                         ))
                   ],
                 ),
+                SizedBox(height: size.height*0.05,),
                 Expanded(
                   child: SingleChildScrollView(
                     child: GetX<SelectedLocationController>(
@@ -69,7 +60,7 @@ class ScreenSelectedView extends StatelessWidget {
                                       selectedLocationController
                                           .getWeatherDetails(
                                               localName: localName);
-                                      // controller.getWeatherDetails(searchName: '');
+                                     
                                     },
                                     icon: const Icon(
                                       Icons.refresh,
@@ -237,7 +228,7 @@ class appbarCustom extends StatelessWidget {
               if (controller.isLoading.value == true ||
                   controller.isError.value == true ||
                   controller.networkError.value == true) {
-                return SizedBox();
+                return const SizedBox();
               }
 
               String localTimeString =

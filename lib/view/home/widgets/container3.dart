@@ -44,7 +44,7 @@ class container3 extends StatelessWidget {
               icon: Icons.cloudy_snowing,
               title: 'Rain',
               value:
-                  '${weatherController.currentWeather.value!.current!.precipIn!.toString()}%',
+                  '${weatherController.currentWeather.value!.forecast!.forecastday![0].day!.dailyChanceOfRain!.toString()}%',
             ),
           ],
         ),

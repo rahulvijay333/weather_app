@@ -14,6 +14,7 @@ class FavouritesController extends GetxController {
 
     favlist.assignAll(favs);
   }
+  
 
   addToFav({required DataBaseModel location}) async {
     final hivebox = await Hive.openBox<DataBaseModel>(favoritesDBName);
@@ -42,7 +43,8 @@ class FavouritesController extends GetxController {
     return Get.snackbar('', '',
         messageText: Text(
           message,
-          style: TextStyle(color: Colors.white, fontWeight: FontWeight.w700),
+          style:
+              const TextStyle(color: Colors.white, fontWeight: FontWeight.w700),
         ),
         titleText: const Text(
           'Status',
@@ -55,13 +57,28 @@ class FavouritesController extends GetxController {
 
   Future<void> deleteFromFav({required String id}) async {
     final hiveBox = await Hive.openBox<DataBaseModel>(favoritesDBName);
-    // Check if the item with the specified ID exists
+   
 
     final item = hiveBox.get(id);
     if (item != null) {
       try {
         hiveBox.delete(id);
         getFavList();
+        Get.snackbar('', '',
+            messageText: const Text(
+              'Location deleted succefully',
+              style:
+                  TextStyle(color: Colors.white, fontWeight: FontWeight.w700),
+            ),
+            backgroundColor: Colors.deepPurple,
+            titleText: const Text(
+              'Status',
+              style:
+                  TextStyle(color: Colors.white, fontWeight: FontWeight.w700),
+            ),
+            snackPosition: SnackPosition.BOTTOM,
+            margin: const EdgeInsets.all(25),
+            snackStyle: SnackStyle.FLOATING);
       } catch (e) {
         showSnackbar(message: 'Error occured');
       }
@@ -70,9 +87,7 @@ class FavouritesController extends GetxController {
     }
   }
 
-  resetFav() {
-    // checkFav.value = false;
-  }
+  
 
   checkFavStatus({required String locationName}) async {
     final hivebox = await Hive.openBox<DataBaseModel>(favoritesDBName);
@@ -86,7 +101,7 @@ class FavouritesController extends GetxController {
         false) {
       checkFav.value = true;
     } else {
-      // log(checkFav.value.toString());
+     
       checkFav.value = false;
     }
   }

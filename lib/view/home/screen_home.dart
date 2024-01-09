@@ -3,7 +3,6 @@ import 'dart:developer';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/state_manager.dart';
 import 'package:intl/intl.dart';
 import 'package:weather_app/controller/favourites_controller.dart';
 import 'package:weather_app/controller/weather_controller.dart';
@@ -71,7 +70,6 @@ class Screenhome extends StatelessWidget {
                     child: Padding(
                       padding: const EdgeInsets.all(16.0),
                       child: CupertinoSearchTextField(
-                       
                         style: const TextStyle(color: Colors.white),
                         padding: const EdgeInsets.all(5),
                         controller: searchController,
@@ -89,7 +87,6 @@ class Screenhome extends StatelessWidget {
                           }
                         },
                         onSubmitted: (value) {
-                          // favouritesController.resetFav();
                           FocusScope.of(context).unfocus();
                           weatherController.getWeatherDetails(
                               searchName: searchController.text);
@@ -195,13 +192,6 @@ class Screenhome extends StatelessWidget {
 
                       for (var time in weatherController.currentWeather.value!
                           .forecast!.forecastday![0].hour!) {
-                        final checktime = DateTime.parse(time.time!);
-                     
-
-                        // if (checktime.isAtSameMomentAs(DateTime.now()) ||
-                        //     checktime.isAfter(DateTime.now())) {
-                        //   timeList.add(time);
-                        // }
                         timeList.add(time);
                       }
                       return ListView(
@@ -229,39 +219,37 @@ class Screenhome extends StatelessWidget {
                               )
                             ],
                           ),
-                          Container(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  weatherController
-                                      .currentWeather.value!.location!.name!,
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.w300,
-                                      color: Colors.white,
-                                      fontSize: size.width * 0.050),
-                                ),
-                                Text(
-                                  weatherController
-                                      .currentWeather.value!.location!.country!,
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.w300,
-                                      color: Colors.white,
-                                      fontSize: size.width * 0.030),
-                                ),
-                                SizedBox(
-                                  height: size.height * 0.5 * 0.02,
-                                ),
-                                //------------------------local time
-                                Text(
-                                  formattedDate,
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.w400,
-                                      color: Colors.white,
-                                      fontSize: size.width * 0.040),
-                                )
-                              ],
-                            ),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                weatherController
+                                    .currentWeather.value!.location!.name!,
+                                style: TextStyle(
+                                    fontWeight: FontWeight.w300,
+                                    color: Colors.white,
+                                    fontSize: size.width * 0.050),
+                              ),
+                              Text(
+                                weatherController
+                                    .currentWeather.value!.location!.country!,
+                                style: TextStyle(
+                                    fontWeight: FontWeight.w300,
+                                    color: Colors.white,
+                                    fontSize: size.width * 0.030),
+                              ),
+                              SizedBox(
+                                height: size.height * 0.5 * 0.02,
+                              ),
+                              //------------------------local time
+                              Text(
+                                formattedDate,
+                                style: TextStyle(
+                                    fontWeight: FontWeight.w400,
+                                    color: Colors.white,
+                                    fontSize: size.width * 0.040),
+                              )
+                            ],
                           ),
                           SizedBox(
                             height: size.height * 0.03,
@@ -305,7 +293,7 @@ class Screenhome extends StatelessWidget {
                             height: size.height * 0.001,
                           ),
                           Center(
-                            child: Container(
+                            child: SizedBox(
                               height: size.height * 0.14,
                               child: ListView.separated(
                                 physics: const BouncingScrollPhysics(),

@@ -17,7 +17,7 @@ class CustomNavDrawer extends StatelessWidget {
       width: 250,
       backgroundColor: Colors.deepPurple.withOpacity(0.5),
       child: ListView(
-        padding: EdgeInsets.only(top: 100),
+        padding: const EdgeInsets.only(top: 100),
         children: [
           Padding(
             padding: const EdgeInsets.all(8.0),
@@ -30,11 +30,11 @@ class CustomNavDrawer extends StatelessWidget {
                     Get.to(() => ScreenFavorites());
                     Scaffold.of(context).closeDrawer();
                   },
-                  leading: Icon(
+                  leading: const Icon(
                     Icons.favorite,
                     color: Colors.red,
                   ),
-                  title: Text(
+                  title: const Text(
                     'Favorite locations',
                     style: TextStyle(color: Colors.white, fontSize: 18),
                   ),
@@ -53,11 +53,11 @@ class CustomNavDrawer extends StatelessWidget {
                     Get.to(() => ScreenNews());
                     Scaffold.of(context).closeDrawer();
                   },
-                  leading: Icon(
+                  leading: const Icon(
                     Icons.newspaper,
                     color: Colors.red,
                   ),
-                  title: Text(
+                  title: const Text(
                     'Top News',
                     style: TextStyle(color: Colors.white, fontSize: 18),
                   ),
@@ -76,11 +76,11 @@ class CustomNavDrawer extends StatelessWidget {
                     weatherController.resetApp();
                     Scaffold.of(context).closeDrawer();
                   },
-                  leading: Icon(
+                  leading: const Icon(
                     Icons.info,
                     color: Colors.red,
                   ),
-                  title: Text(
+                  title: const Text(
                     'Reset App',
                     style: TextStyle(color: Colors.white, fontSize: 18),
                   ),

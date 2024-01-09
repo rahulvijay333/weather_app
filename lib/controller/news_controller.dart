@@ -4,13 +4,10 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:dio/dio.dart';
-import 'package:get/get_navigation/src/extension_navigation.dart';
 import 'package:get/get_rx/get_rx.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 
-import 'package:get/get_navigation/src/snackbar/snackbar_controller.dart';
 import 'package:get/route_manager.dart';
-import 'package:get/utils.dart';
 
 import 'package:weather_app/constants/api_endpoints/api_ends.dart';
 import 'package:weather_app/constants/key/api_key.dart';

@@ -231,9 +231,9 @@ class AppbarCustom extends StatelessWidget {
               child: Text(
             'Top Climate News',
             style: TextStyle(
-                fontSize: size.width * 0.05,
+                fontSize: size.width * 0.04,
                 color: Colors.white,
-                fontWeight: FontWeight.w500),
+                fontWeight: FontWeight.w600),
           )),
         ),
         // Icon(Icons.arrow_back)

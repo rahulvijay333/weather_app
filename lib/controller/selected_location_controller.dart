@@ -7,7 +7,6 @@ import 'package:dio/dio.dart';
 import 'package:get/get_rx/get_rx.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:weather_app/constants/api_endpoints/api_ends.dart';
-import 'package:weather_app/constants/key/api_key.dart';
 import 'package:weather_app/model/selected_location/selected_location_model/selected_location_model.dart';
 
 class SelectedLocationController extends GetxController {
@@ -32,12 +31,6 @@ class SelectedLocationController extends GetxController {
       try {
         final dio = Dio();
 
-        dio.options.headers = {
-          'Content-Type': 'application/json',
-          'X-RapidAPI-Host': 'weatherapi-com.p.rapidapi.com',
-          'X-RapidAPI-Key': apiKey
-        };
-
         final Response response = await dio.get(
           ApiEndPoints.getForcastedWeather,
           queryParameters: {'q': localName, 'days': 3, 'aqi': 'yes'},
@@ -45,13 +38,18 @@ class SelectedLocationController extends GetxController {
 
         if (response.statusCode == 200) {
           try {
+            log('got output');
             currentWeather.value =
                 SelectedLocationModel.fromJson(response.data);
+
+            log(currentWeather.value.toString());
+            log('fetching completed');
 
             isLoading.value = false;
 
             return;
           } catch (e) {
+            log('error parsing $e');
             return;
           }
         } else if (response.statusCode == 404) {

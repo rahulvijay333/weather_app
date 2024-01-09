@@ -11,7 +11,7 @@ class Astro {
   @JsonKey(name: 'moon_phase')
   String? moonPhase;
   @JsonKey(name: 'moon_illumination')
-  String? moonIllumination;
+  int? moonIllumination;
   @JsonKey(name: 'is_moon_up')
   int? isMoonUp;
   @JsonKey(name: 'is_sun_up')

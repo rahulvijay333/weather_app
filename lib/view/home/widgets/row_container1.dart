@@ -18,8 +18,6 @@ class Container1 extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       width: size.width * 0.50,
-      // height: size.height * 0.30,
-      // color: Colors.white.withOpacity(0.5),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -38,40 +36,15 @@ class Container1 extends StatelessWidget {
             height: size.height * 0.01,
           ),
           SizedBox(
+            height: size.height * 0.5 * 0.07,
             child: Text(
               'Feels like ${weatherController.currentWeather.value!.current!.feelslikeC}${digree}C',
               style: const TextStyle(color: Colors.white),
             ),
-            height: size.height * 0.5 * 0.07,
           ),
           SizedBox(
             height: size.height * 0.5 * 0.02,
           ),
-          // Text(
-          //   weatherController.currentWeather.value!.location!.name!,
-          //   style: TextStyle(
-          //       fontWeight: FontWeight.w300,
-          //       color: Colors.white,
-          //       fontSize: size.width * 0.050),
-          // ),
-          // Text(
-          //   weatherController.currentWeather.value!.location!.country!,
-          //   style: TextStyle(
-          //       fontWeight: FontWeight.w300,
-          //       color: Colors.white,
-          //       fontSize: size.width * 0.030),
-          // ),
-          // SizedBox(
-          //   height: size.height * 0.5 * 0.02,
-          // ),
-          // //------------------------local time
-          // Text(
-          //   formattedDate,
-          //   style: TextStyle(
-          //       fontWeight: FontWeight.w400,
-          //       color: Colors.white,
-          //       fontSize: size.width * 0.040),
-          // )
         ],
       ),
     );

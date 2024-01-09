@@ -12,7 +12,7 @@ Astro _$AstroFromJson(Map<String, dynamic> json) => Astro(
       moonrise: json['moonrise'] as String?,
       moonset: json['moonset'] as String?,
       moonPhase: json['moon_phase'] as String?,
-      moonIllumination: json['moon_illumination'] as String?,
+      moonIllumination: json['moon_illumination'] as int?,
       isMoonUp: json['is_moon_up'] as int?,
       isSunUp: json['is_sun_up'] as int?,
     );

@@ -51,12 +51,12 @@ class Container1part2image extends StatelessWidget {
               }, icon: GetX<FavouritesController>(
                 builder: (controller) {
                   if (controller.checkFav.value == true) {
-                    return Icon(
+                    return const Icon(
                       Icons.favorite,
                       color: Colors.red,
                     );
                   } else {
-                    return Icon(
+                    return const Icon(
                       Icons.favorite_border,
                       color: Colors.white,
                     );
