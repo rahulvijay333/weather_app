@@ -18,8 +18,8 @@ class SelectedLocationController extends GetxController {
 
   Future<void> getWeatherDetails({required String localName}) async {
     final connectivityResult = await (Connectivity().checkConnectivity());
-    if (connectivityResult == ConnectivityResult.mobile ||
-        connectivityResult == ConnectivityResult.wifi) {
+    if (connectivityResult.contains(ConnectivityResult.mobile) ||
+        (connectivityResult.contains(ConnectivityResult.wifi))) {
       networkError.value = false;
 
       if (localName.isEmpty) {

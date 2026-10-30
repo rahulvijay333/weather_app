@@ -1,4 +1,4 @@
-import 'package:weather_app/constants/key/api_key.dart';
+import '../key/api_key.dart';
 
 class ApiEndPoints {
   static const baseUrl = 'https://weatherapi-com.p.rapidapi.com';

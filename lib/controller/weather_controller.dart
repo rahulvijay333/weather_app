@@ -38,8 +38,8 @@ class WeatherController extends GetxController {
   void checkConnectivity() async {
     final connectivityResult = await (Connectivity().checkConnectivity());
 
-    if (connectivityResult == ConnectivityResult.mobile ||
-        connectivityResult == ConnectivityResult.wifi) {
+ if (connectivityResult.contains(ConnectivityResult.mobile) ||
+        (connectivityResult.contains(ConnectivityResult.wifi))) {
       networkError.value = false;
 
       String? checkValue = await getValue();
@@ -70,8 +70,8 @@ class WeatherController extends GetxController {
 
   Future<void> getWeatherDetails({required String searchName}) async {
     final connectivityResult = await (Connectivity().checkConnectivity());
-    if (connectivityResult == ConnectivityResult.mobile ||
-        connectivityResult == ConnectivityResult.wifi) {
+     if (connectivityResult.contains(ConnectivityResult.mobile) ||
+        (connectivityResult.contains(ConnectivityResult.wifi))) {
       networkError.value = false;
 
       if (searchName.isEmpty) {

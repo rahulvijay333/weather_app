@@ -28,8 +28,8 @@ class NewsController extends GetxController {
   //
   Future<void> getNewsList() async {
     final connectivityResult = await (Connectivity().checkConnectivity());
-    if (connectivityResult == ConnectivityResult.mobile ||
-        connectivityResult == ConnectivityResult.wifi) {
+    if (connectivityResult.contains(ConnectivityResult.mobile) ||
+        (connectivityResult.contains(ConnectivityResult.wifi))) {
       isNetworkError.value = false;
 
       isloading.value = true;

@@ -12,7 +12,9 @@ class ScreenNews extends StatelessWidget {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
 
-    newsController.getNewsList();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      newsController.getNewsList();
+    });
 
     return SafeArea(
       child: Scaffold(
@@ -37,7 +39,9 @@ class ScreenNews extends StatelessWidget {
                           children: [
                             const Text('Error connecting to server'),
                             IconButton(
-                                onPressed: () {},
+                                onPressed: () {
+                                  newsController.getNewsList();
+                                },
                                 icon: const Icon(Icons.refresh))
                           ],
                         ),
@@ -48,7 +52,9 @@ class ScreenNews extends StatelessWidget {
                           children: [
                             const Text('Not connected to internet '),
                             IconButton(
-                                onPressed: () {},
+                                onPressed: () {
+                                  newsController.getNewsList();
+                                },
                                 icon: const Icon(Icons.refresh))
                           ],
                         ),
@@ -88,7 +94,6 @@ class ScreenNews extends StatelessWidget {
                 ),
               ),
             )
-            
           ],
         ),
       ),
